@@ -40,7 +40,12 @@
 					// Images (in the format of 'url': 'alignment').
 						images: {
 							'images/ArrowsThemeImage.png': 'center',
-							'images/bg02.jpg': 'center'
+							'images/Toronto3.jpg': 'center',
+							'images/CUTC-2010-8.jpg': 'center',
+							'images/CUTC-2010-2.jpg': 'center',
+							'images/CUTC-2010-4.jpg': 'center',
+							'images/CUTC-2010-5.jpg': 'center',
+							'images/CUTC-2010-6.jpg': 'top'
 						},
 
 					// Delay.
@@ -150,8 +155,17 @@
 						$submit.disabled = true;
 
 					// Process form.
-					// Note: Doesn't actually do anything yet (other than report back with a "thank you"),
-					// but there's enough here to piece together a working AJAX submission call that does.
+					//Submit form data here
+					/*
+						var form = document.createElement("form");
+					    form.method="post";
+					    form.action="https://us10.api.mailchimp.com/3.0/lists/8e1a7375e8/members");
+					    form.submit();
+
+						post( "https://us10.api.mailchimp.com/3.0/lists/8e1a7375e8/members", 
+						{ "email_address":"hello@world.com", "status":"subscribed" } );
+					*/
+					
 						window.setTimeout(function() {
 
 							// Reset form.
