@@ -18,16 +18,17 @@
 
 		<!-- Header -->
 			<header id="header">
-				<img src="/Users/Jared/Documents/GitHub/CUTC16/images/cutc16-logo-250.png">
+				<img src="images/cutc16-logo-250.png">
 				<h1>Imagine.</h1>
 				<p>Canada's longest running undergraduate <br />
 				technology conference. Join the imagination.</p>
 			</header>
 
 		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
+			<form id="signup-form" method="post" action="https://us10.api.mailchimp.com/3.0/lists/8e1a7375e8/members">
 				<input type="email" name="email" id="email" placeholder="Email Address" />
 				<input type="submit" value="Stay Tuned" />
+				<input type="hidden" name=value="email_address":"hello@world.com","status":"subscribed">
 			</form>
 
 		<!-- Footer -->
