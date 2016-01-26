@@ -1,0 +1,13 @@
+# BEGIN (mt) controlled settings
+<IfModule !mod_fcgid.c>
+  AddHandler php-stable .php
+</IfModule>
+<IfModule mod_fcgid.c>
+  AddHandler fcgid-script .php
+  FcgidWrapper /etc/apache2/gs-bin/php-stable-wrapper .php
+  <Files *.php>
+    Options +ExecCGI
+    Options +Indexes
+  </Files>
+</IfModule>
+# END (mt) controlled settings
