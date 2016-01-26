@@ -387,7 +387,7 @@
 
 	h2 {
 		font-size: 1.75em;
-		line-height: 1.5em;
+		line-height: 2em;
 	}
 
 	h3 {
@@ -462,6 +462,10 @@
 		hr.major {
 			margin: 3em 0;
 		}
+
+	img {
+		margin-top: -5em;
+	}
 
 /* Section/Article */
 
@@ -588,7 +592,7 @@
 /* Form */
 
 	form {
-		margin: 0 0 2em 0;
+		margin: 0 0 1.5em 0;
 	}
 
 		form .message {
@@ -961,6 +965,7 @@
 		font-weight: 700;
 		height: 2.75em;
 		line-height: 2.75em;
+		margin-bottom: 2em;
 		padding: 0 1.125em;
 		text-align: center;
 		text-decoration: none;
@@ -1106,6 +1111,7 @@
 		-ms-transition: opacity 0.5s ease-in-out;
 		transition: opacity 0.5s ease-in-out;
 		bottom: 4em;
+		padding-top: 2em;
 		color: rgba(255, 255, 255, 0.5);
 		left: 4em;
 		opacity: 0.5;

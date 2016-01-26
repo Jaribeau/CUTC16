@@ -157,93 +157,37 @@
 					// Process form.
 					//Submit form data here
 					console.log("Attempting to post...");
-					/*
-					$.ajax({
-				      type: "POST", // GET & url for json slightly different
-				      url: "https://us10.api.mailchimp.com/3.0/lists/8e1a7375e8/members",
-					  headers: {
-					        'Authorization':'Basic YXV0aGhoaGg6OWMxYmEwNDc1ZGUzZDg5ODY0MWVjZDM4MzNkNzQ0ZDAtdXMxMA==',
-					        'Content-Type':'application/jsonp'
-					    },
-				      data: 
-					    {
-						  "email_address":"hello@world3.com",
-						  "status":"subscribed"
-						},
-				      dataType    : 'jsonp',
-				      contentType: "application/jsonp; charset=utf-8",
-				      error       : function(err) { alert("Could not connect to the registration server."); },
-				      success     : function(data) {
-				          if (data.result != "success") {
-				              // Something went wrong, parse data.msg string and display message
-				          } else {
-				              // It worked, so hide form and display thank-you message.
-				          }
-				      }
-				  });
-*/
 
-					/*
-				    $.ajax({
-				        type: $form.attr('method'),
-				        url: $form.attr('action'),
-				        data: $form.serialize(),
-				        cache       : false,
-				        dataType    : 'json',
-				        contentType: "application/json; charset=utf-8",
-				        error       : function(err) { alert("Could not connect to the registration server. Please try again later."); },
-				        success     : function(data) {
-				            if (data.result != "success") {
-				                // Something went wrong, do something to notify the user. maybe alert(data.msg);
-				            } else {
-				                // It worked, carry on...
-				            }
-				        }
-				    });
-				    */
+				    var email = document.getElementById("email").value;
 				    
 					$.ajax({
-					    url: 'https://us10.api.mailchimp.com/3.0/lists/8e1a7375e8/members',
+					    url: 'https://cutc.us10.list-manage.com/subscribe/post-json?u=73d566326ae6bb629b42fb5fd&id=8e1a7375e8&c=?',
+					    //url: 'https://us10.api.mailchimp.com/3.0/lists/8e1a7375e8/members&c=?',
 					    headers: {
 					        'Authorization':'Basic YXV0aGhoaGg6OWMxYmEwNDc1ZGUzZDg5ODY0MWVjZDM4MzNkNzQ0ZDAtdXMxMA==',
-					        'Content-Type':'application/json',
+					        'Content-Type':'application/json'
 					    },
-					    method: 'post',
+					    type: 'POST',
 					    dataType: 'json',
-        				contentType: 'application/json',
+        				contentType: 'application/json; charset=utf-8',
 					    data:
 					    {
-						  "email_address":"hello@world3.com",
-						  "status":"subscribed"
+						  "EMAIL":email,
+						  "status":"subscribed",
+						  "send_welcome":"false"
 						},
 					    success: function(data){
-					      console.log('succes: '+data);
+					    	console.log('succes: '+ JSON.stringify(data));
+							$message._show('success', 'Thank you!');
+							$submit.disabled = false;
+							$form.reset();
+					    },
+					    error: function(err){
+					    	console.log('error: '+ JSON.stringify(err));
+							$message._show('failure', 'Something went wrong. Please try again.');
+							$submit.disabled = false;
 					    }
 					  });
-					
-					/*
-						var form = document.createElement("form");
-					    form.method="post";
-					    form.action="https://us10.api.mailchimp.com/3.0/lists/8e1a7375e8/members");
-					    form.submit();
-
-						post( "https://us10.api.mailchimp.com/3.0/lists/8e1a7375e8/members", 
-						{ "email_address":"hello@world.com", "status":"subscribed" } );
-					*/
-					
-						window.setTimeout(function() {
-
-							// Reset form.
-								$form.reset();
-
-							// Enable submit.
-								$submit.disabled = false;
-
-							// Show message.
-								$message._show('success', 'Thank you!');
-								//$message._show('failure', 'Something went wrong. Please try again.');
-
-						}, 750);
 
 				});
 
